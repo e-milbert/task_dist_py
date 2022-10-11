@@ -4,7 +4,7 @@ import Chore as C
 
 
 
-def chore_to_person(person, chore, day=str):
+def chore_to_person(person, chore, day: str):
     
     task=chore
 
@@ -50,8 +50,9 @@ def print_week(person):
 
 def distribution_of_daily():
     '''
-    Distributes all daily tasks randomly to people. if a person does not have enough time points, another person is chosen.
-    Uses shuffe from random module to shuffle list of person instances
+    Assigns all daily tasks randomly to people. if a person does not 
+    have enough time points, another person is chosen.
+    Uses shuffle from random module to shuffle list of person instances
         
     '''
 
@@ -85,8 +86,11 @@ def distribution_of_daily():
 
 def distribution_of_twice():
     '''
-    Task will be distributed to random person on random first day. 
-    the first day dictates on which other days the task might be done. This means it excludes days within 2 days of the first day. this is accoplished by using match case and lists which are used for the second distribution.
+    Task will be assigned to a random person on a random first day. 
+    the first day dictates on which other days the task might be carried 
+    out. This means it excludes days within 2 days of the first day. 
+    This is accomplished by using match case and lists which are used 
+    for the second assignment.
 
     '''
             
@@ -257,8 +261,9 @@ def distribution_of_twice():
 
 def distribution_of_once():
     '''
-    Used for distribution of weekly tasks. 
-    sunday and monday are excluded to make sure the gap between task appointments is big enough.
+    Used for assignment of weekly tasks. 
+    Sunday and monday are excluded to make sure the gap between task 
+    appointments is big enough.
     '''
 
     for task in C.Chore.once_copy:
@@ -283,6 +288,4 @@ def distribution_of_once():
 
         if counter==0:
             C.Chore.open_tasks.append(task)
-        
-
         
