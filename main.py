@@ -1,4 +1,3 @@
-from random import shuffle
 import Chore as C
 import Person as P
 import functions as func

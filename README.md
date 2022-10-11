@@ -1,2 +1,2 @@
 # task_dist_py
-distributes tasks to random ppl 
+assigns tasks to random people

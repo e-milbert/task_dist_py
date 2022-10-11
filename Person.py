@@ -1,29 +1,29 @@
-import Chore
-
-#Person is the class to whose instances chores will be distributed to.
-
+#Person is the class to whose instances chores will be assigned to.
 
 class Person:
     '''
-    Class used to represent a person to whom a task or chore may be distributed.
-    Must be called only after class Chores is finished. 
-    If person has any individual tasks, those will be added to the specified days 
-    and the needed time will be subtracted automatically.
+    Class used to represent a person to whom a task or chore may be 
+    assigned. Must be called only after class Chores is finished. 
+    If a person has any individual tasks, those will be added to the 
+    specified days and the required time will be subtracted 
+    automatically.
 
     Attributes
     ----------
     people : list
-        list to which each new instance of Person will be appended, used later in distribution
+        list to which each new instance of Person will be appended to, 
+        later used in assignment
     name : str
         name of the person
     individual_task : object
         Instance of class Chore, personal chore like "clean bedroom"
     time_points_mon : int
-        short:tp; time the person has to do chores each day. 10 min = 1, 60 min = 6
+        short:tp; amount of time the person has to do chores each day. 
+        10 min = 1, 60 min = 6
     days_time_points : dict
-        automatically initialiesed dictionary with day:tp pairs
+        automatically initialized dictionary with day:tp pairs
     monday_chores : list
-        lists of each week day for each instance to append tasks for the day
+        lists of each week day and instance to append tasks for the day
 
     Methods
     -------
@@ -31,30 +31,40 @@ class Person:
     
     people=[] 
 
-    def __init__(self, name=str, time_points_mon=int, time_points_tue=int, time_points_wed=int, time_points_thu=int, time_points_fri=int, time_points_sat=int, time_points_sun=int, individual_task=None, individual_task_day=None):
+    def __init__(self, name: str, time_points_mon: int, time_points_tue: int, 
+            time_points_wed: int, time_points_thu: int, time_points_fri: int, 
+            time_points_sat: int, time_points_sun: int, individual_task=None, 
+            individual_task_day=None):
         '''
         Parameters
         ----------
         name : str
             name of the person
         time_points_mon : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6
         time_points_tue : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6
         time_points_wed : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6
         time_points_thu : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6
         time_points_fri : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6
         time_points_sat : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6
         time_points_sun : int
-            time the person has to do chores each day. 10 min = 1, 60 min = 6     
+            time the person has to do chores each day. 
+            10 min = 1, 60 min = 6     
         individual_task : optional, default None
             Instance of class Chore, personal chore like "clean bedroom"
         individual_task_day : optional, default None
-            str, day on which task will be sheduled   
+            str, day on which task will be scheduled   
         
         '''
         
@@ -99,16 +109,19 @@ class Person:
     
 
     #should be in utility??
-    def subtract_task_tp_from_persons_day(self, day=str, task_name=object):
+    def subtract_task_tp_from_persons_day(self, day: str, task_name: object):
         '''
-        Time needed to perform certain task are subtracted from persons available time point of the given day.
+        Time needed to perform a certain task is subtracted from persons 
+        available time points of the given day.
 
-        Person's available time points are taken from the individual dictionary days_time_points. 
+        Person's available time points are taken from the individual 
+        dictionary days_time_points. 
 
         Parameters
         ----------
         day = str
-            one of the following: mon, tue, wed, thu, fri, sat, sun; keys used in days_time_points
+            one of the following: mon, tue, wed, thu, fri, sat, sun; 
+            used as keys in days_time_points    # ????? INHALTLICH KORREKT SO????
         task_name = object
             chore/task instance
         
@@ -129,22 +142,24 @@ class Person:
             new_available_tp_day=available_tp_day-task_tp
             self.days_time_points[day]=new_available_tp_day         #value in dictionary of self updated
 
-
-    def time_for_task_check(self, day=str, task_name=object):
+    def time_for_task_check(self, day: str, task_name: object):
         '''
-        Function checks if person has enough time points left on a certain day to do a task.
+        Function checks if person has sufficient time points left on a 
+        certain day to do a task.
 
         Parameters
         ----------
         day: str
-            one of the following: mon, tue, wed, thu, fri, sat, sun; keys used in days_time_points
+            one of the following: mon, tue, wed, thu, fri, sat, sun; 
+            used as keys in days_time_points
         task_name = object
             name of chore/task instance
         
         Returns
         ------
         bool
-            returns True if person has enough time, else False will be returned 
+            returns True if person has enough time, False will be 
+            returned otherwise 
         '''
         
         available_tp_day=int
@@ -158,15 +173,15 @@ class Person:
         else:
             return False
 
-
-    def add_task_to_day_list(self, day=str, task_name=object):
+    def add_task_to_day_list(self, day: str, task_name: object):
         '''
         Adds task to persons to-Do list.
 
         Parameters
         ----------
         day: str
-            one of the following: mon, tue, wed, thu, fri, sat, sun; keys used in days_time_points
+            one of the following: mon, tue, wed, thu, fri, sat, sun; 
+            used as keys in days_time_points
         task_name = object
             name of chore/task instance
 
@@ -197,10 +212,12 @@ class Person:
 
     def sorted_days(self): #called in func.dist_of_twice 
         '''
-        Function gets list out of week_tp_dict with days(keys) sorted by value(descending).
+        Function gets list out of week_tp_dict with days(keys) 
+        sorted by value(descending).
         :param self: Person instance
-        :return: list with sorted weekdays by available time points
+        :return: list with weekdays sorted by available time points
         '''
+
         dic_days=self.week_tp_dict
         days_desc_tp=[]
         days_by_tp=[]
