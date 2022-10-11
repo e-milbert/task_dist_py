@@ -108,7 +108,7 @@ def copy_frequency_lists():
     for task in Chore.once:
         Chore.once_copy.append(task)
 
-def get_random_task(frequency=str):     #not used
+def get_random_task(frequency:str):     #not used
     '''
     Chooses a random task for assignment.
 
