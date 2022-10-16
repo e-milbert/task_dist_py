@@ -121,13 +121,10 @@ class Person:
         ----------
         day = str
             one of the following: mon, tue, wed, thu, fri, sat, sun; 
-            used as keys in days_time_points    # ????? INHALTLICH KORREKT SO????
+            used as keys in days_time_points   
         task_name = object
             chore/task instance
-        
-        Variables
-        ---------
-
+       
 
         '''
 
@@ -181,7 +178,7 @@ class Person:
         ----------
         day: str
             one of the following: mon, tue, wed, thu, fri, sat, sun; 
-            used as keys in days_time_points
+            needed to select chore list
         task_name = object
             name of chore/task instance
 
